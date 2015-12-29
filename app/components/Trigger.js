@@ -67,7 +67,7 @@ class Trigger extends Component {
                     <Modal.Body>
                         <form className='clearfix'>
                             <fieldset>
-                                <div class="checkbox">
+                                <div className="checkbox">
                                     <label>
                                         <Input type="checkbox" label="Send welcome email to employee" onChange={this.setChecked} checked={this.state.checked}/>
                                     </label>
