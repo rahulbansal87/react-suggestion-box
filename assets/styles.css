@@ -1,0 +1,87 @@
+.modal-container {
+    position: relative;
+}
+.modal-container .modal, .modal-container .modal-backdrop {
+    position: absolute;
+}
+
+.modal-header {
+    /* font-size: 18px; */
+}
+
+h4#contained-modal-title {
+    font-size: 26px;
+    font-weight: normal;
+    color: #429EEC;
+}
+
+button.close {
+    font-size: 30px;
+    margin-top: 0;
+    padding-top: 0;
+    margin-right: -9px;
+}
+
+.close>span {
+    line-height: inherit;
+}
+.model-dialog{
+    background-color: rgb(247,247,247);
+}
+.modal-content {
+
+    width: 550px;
+}
+
+.modal-header {
+    border-bottom: none;
+    padding: 13px 22px 0px 22px;
+}
+
+span.select2-selection.select2-selection--multiple {
+    background-color: rgba(170, 170, 170, 0.3);
+    border-radius: 2px;
+    height: 40px;
+    /* color: black; */
+    border: 1px solid transparent;
+}
+
+li input.select2-search__field {
+    padding-top: 4px;
+}
+
+li.select2-search.select2-search--inline input.select2-search__field {
+    padding-top: 4px;
+    /* color: black; */
+}
+
+input.btn {
+    width: 100px;
+    height: 37px;
+    /* background-color: rgba(19, 139, 243, 0.72); */
+    border: 1px solid transparent;
+}
+
+input.pull-left.btn.btn-default[value=Cancel] {
+    background-color: #E1E1E1;
+    border: none;
+}
+
+.btn-primary {
+    background-color: rgba(19, 139, 243, 0.72);
+}
+
+.modal-content {
+    border: none;
+}
+.modal-body {
+    padding-top: 0px;
+}
+
+.checkbox label {
+    padding-left: 12px;
+}
+
+span.select2.select2-container {
+    width: 100%!important;
+}

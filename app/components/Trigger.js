@@ -2,10 +2,9 @@
  * Created by shishirarora on 28/12/15.
  */
 import React, { PropTypes, Component }  from 'react';
-import ReactDOM from 'react-dom'
 import { Modal, Button, Input, ButtonInput } from 'react-bootstrap';
 import getContentInfo from '../utils/data';
-import Select2 from './Select2'
+import Select from 'react-select'
 
 
 class Trigger extends Component {
@@ -19,22 +18,23 @@ class Trigger extends Component {
             selectedTeam: teamsObj[0].team,
             selectedEmployee: teamsObj[0].employees[0],
             employees: teamsObj[0].employees,
+            teamIndex:0,
             teams: teamsObj.map((teamObj)=> {
                 return teamObj.team;
             })
         };
-        this.update = this.update.bind(this)
-        this.setChecked = this.setChecked.bind(this)
+        this.update = this.update.bind(this);
+        this.setChecked = this.setChecked.bind(this);
     }
 
 
-    update(e) {
-        var newTeam = e.target.value;
-        var newEmployees = this.state.teamsObj.filter(teamObj => teamObj.team === newTeam)[0].employees;
+    update(newTeamIndex) {
+        var selectedTeamObj = this.state.teamsObj[parseInt(newTeamIndex)];
         this.setState({
-            selectedTeam: newTeam,
-            employees: newEmployees,
-            selectedEmployee: newEmployees[0]
+            teamIndex: newTeamIndex,
+            selectedTeam: selectedTeamObj.team,
+            employees: selectedTeamObj.employees,
+            selectedEmployee: selectedTeamObj.employees[0]
         });
     }
     setChecked(e){
@@ -73,27 +73,30 @@ class Trigger extends Component {
                                     </label>
                                 </div>
                                 <div className="form-group">
-                                    <label for='teams'>Select a team in organization</label>
-                                    <Select2
+                                    <label>Select a team in organization</label>
+                                    <Select type="select"
                                         id = 'teams'
-                                        multiple='multiple'
-                                        data={this.state.teams.map((team,id) => {return {id:id, text:team}})}
-                                        onChange={() => { this.update } }
+                                        name="teams"
+                                        value={this.state.teamIndex}
+                                            key="teams"
+                                        options={this.state.teams.map((team,id) => {return {value:id, label:team, clearableValue: false}})}
+                                        onChange={this.update}
                                         placeholder= 'Select team'
-                                        options={{
-                                        placeholder: 'Select team'
-                                      }} />
+                                        matchPos= "start"
+                                        matchProp= "label"/>
                                 </div>
                                 <div className="form-group">
-                                    <label for='employees'>Select an Employee</label>
-                                    <Select2
+                                    <label>Select an Employee</label>
+                                    <Select type="select"
                                         id = 'employees'
-                                        multiple='multiple'
-                                        data={this.state.employees.map((employee,id) => {return {id:id, text:employee}})}
-                                        placeholder= "Select Employee"
-                                        options={{
-                                        placeholder: "Select Employee"
-                                      }} />
+                                            key="employees"
+                                        value="0"
+                                        name="employees"
+                                        options={this.state.employees.map((employee,id) => {return {value:id, label:employee, clearableValue: false}})}
+                                        placeholder= 'Select Employee'
+                                        matchPos= "start"
+                                        matchProp= "label"/>
+
                                 </div>
                                 <ButtonInput className="pull-left" value="Cancel"/>
                                 <ButtonInput bsStyle="primary" className="pull-right" type="submit" value="OK"/>

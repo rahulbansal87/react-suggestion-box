@@ -1,7 +1,7 @@
 import React from 'react';
 import Trigger from './Trigger'
 
-const Main = ({children, history}) => {
+const Main = () => {
   return (
     <Trigger/>
   )

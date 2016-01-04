@@ -1,20 +1,28 @@
-  var port = process.env.PORT || 3574;
+  var port = process.env.PORT || 3070;
   var path = require('path');
-module.exports = {
+  var webpack = require('webpack');
+
+  var commonsPlugin =
+      new webpack.optimize.CommonsChunkPlugin('common.js');
+
+  module.exports = {
   context: path.join(__dirname, '.'),
   entry: {
-    javascript: "./app/App.js",
-    html: './index.html'
+    app: "./app/App.js"
   },
   output: {
-    path: path.join(__dirname, '.'),
-    filename: "bundle.js"
+    path: 'build',// This is where images AND js will go
+    //path: path.join(__dirname, '.'),
+    //filename: "bundle.js",
+    publicPath: "/assets/", //path that will be considered when requiring your files
+    filename: '[name].js'
   },
   devServer: {
     inline: true,
     port: port,
     historyApiFallback: true
   },
+    plugins: [commonsPlugin],//<script src="build/common.js"></script>
   module: {
     loaders: [
       {
@@ -29,7 +37,11 @@ module.exports = {
        test:  /\.html/, loader: 'file?name=[name].[ext]'
       },
       {
-        test:  /\.css/, loader: 'file?name=[name].[ext]'
+        test:  /\.css?$/, loaders: ["style", "css"]
+      },
+      { test: /\.less$/, loaders: ["style", "css", "less"]},
+      {
+        test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'
       }
     ]
   }
