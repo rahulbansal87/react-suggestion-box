@@ -4,9 +4,8 @@
 <h4>Steps to install</h4>
 
 <ol>
-<li>npm init
 <li>npm install
-<li>npm start
-<li> open http://localhost:3574/ in browser
 </ol>
+
+<a href="https://rawgit.com/shishirarora3/react-suggestion-box/master/index.html" target="_blank">DEMO</a>
 
