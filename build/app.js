@@ -24806,8 +24806,8 @@ webpackJsonp([0,1],[
 	                                        matchPos: 'start',
 	                                        matchProp: 'label' })
 	                                ),
-	                                _react2.default.createElement(_reactBootstrap.ButtonInput, { className: 'pull-left', value: 'Cancel' }),
-	                                _react2.default.createElement(_reactBootstrap.ButtonInput, { bsStyle: 'primary', className: 'pull-right', type: 'submit', value: 'OK' })
+	                                _react2.default.createElement(_reactBootstrap.ButtonInput, { className: 'pull-left', value: 'Cancel', onClick: close }),
+	                                _react2.default.createElement(_reactBootstrap.ButtonInput, { bsStyle: 'primary', className: 'pull-right', type: 'submit', value: 'OK', onClick: close })
 	                            )
 	                        )
 	                    )

@@ -98,8 +98,8 @@ class Trigger extends Component {
                                         matchProp= "label"/>
 
                                 </div>
-                                <ButtonInput className="pull-left" value="Cancel"/>
-                                <ButtonInput bsStyle="primary" className="pull-right" type="submit" value="OK"/>
+                                <ButtonInput className="pull-left" value="Cancel" onClick={close}/>
+                                <ButtonInput bsStyle="primary" className="pull-right" type="submit" value="OK" onClick={close}/>
                             </fieldset>
                         </form>
                     </Modal.Body>
